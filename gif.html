@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GIFF</title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="gif.css" />
+  </head>
+  <body>
+    <nav id="navbar">
+      <div id="logo">
+        <ul>
+          <li><img src="gifs/text.gif" alt="" /></li>
+        </ul>
+      </div>
+      <div id="navLinks">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+        </ul>
+        <ul>
+          <li><a href="saved.html">Saved</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div id="gif-main">
+      <input type="text" id="search" placeholder="search keyword...." />
+      <button onclick="handleClick()">
+        <i class="fas fa-search search-btn"></i></button
+      ><br />
+    </div>
+    <div id="loading"></div>
+    <script src="gif.js"></script>
+  </body>
+</html>

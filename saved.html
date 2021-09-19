@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GiFF</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #f5e8c7;
+      }
+      #logo {
+        font-size: 2.5rem;
+      }
+      nav {
+        background-color: #3e2c41;
+      }
+      #navbar {
+        width: 70%;
+        height: 8vh;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 10px auto;
+      }
+      #navLinks {
+        display: flex;
+        justify-content: space-between;
+        width: 25%;
+      }
+      ul li {
+        list-style: none;
+      }
+      ul li a {
+        text-decoration: none;
+        color: white;
+        padding: 10px 20px;
+        font-size: large;
+        text-transform: uppercase;
+      }
+      ul li img {
+        height: 30px;
+        padding-left: 5px;
+      }
+      h1 {
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 3rem;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        margin-bottom: 50px;
+      }
+      #container {
+        width: 80%;
+        margin: 80px auto;
+      }
+      img {
+        padding: 10px;
+      }
+      ul li a:hover {
+        background-color: black;
+        color: #f5e8c7;
+      }
+    </style>
+  </head>
+  <body>
+    <nav id="navbar">
+      <div id="logo">
+        <ul>
+          <li><img src="gifs/text.gif" alt="" /></li>
+        </ul>
+      </div>
+      <div id="navLinks">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+        </ul>
+        <ul>
+          <li><a href="gif.html">Gifs</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div id="container">
+      <h1>Saved Images</h1>
+    </div>
+    <script>
+      let appendImage = document.querySelector("#container");
+      let url = localStorage.getItem("url");
+      console.log(url);
+      let img = document.createElement("img");
+      img.setAttribute("src", url);
+      console.log(img);
+      appendImage.appendChild(img);
+    </script>
+  </body>
+</html>

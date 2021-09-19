@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GIFF</title>
+    <style>
+      body {
+        background-color: #f5e8c7;
+      }
+      nav {
+        background-color: #3e2c41;
+      }
+      h2 {
+        font-size: 2.5rem;
+      }
+      .signup {
+        height: 75vh;
+        width: 50%;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      input {
+        padding: 10px;
+        width: 100%;
+        margin-bottom: 10px;
+      }
+      #logo {
+        font-size: 2.5rem;
+      }
+      #navbar {
+        width: 70%;
+        height: 8vh;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 10px auto;
+      }
+      #navLinks {
+        display: flex;
+        justify-content: space-between;
+        width: 35%;
+      }
+      ul li {
+        list-style: none;
+      }
+      ul li a {
+        text-decoration: none;
+        color: white;
+        padding: 10px 20px;
+        font-size: large;
+        text-transform: uppercase;
+      }
+      ul li img {
+        height: 30px;
+        padding-left: 5px;
+      }
+      button {
+        padding: 10px;
+        text-transform: uppercase;
+        border: 1px solid black;
+      }
+      button:hover {
+        background: black;
+        color: #f5e8c7;
+      }
+      ul li a:hover {
+        background-color: black;
+        color: #f5e8c7;
+      }
+    </style>
+  </head>
+  <body>
+    <nav id="navbar">
+      <div id="logo">
+        <ul>
+          <li><img src="gifs/text.gif" alt="" /></li>
+        </ul>
+      </div>
+      <div id="navLinks">
+        <ul>
+          <li><a href="signup.html">Sign Up</a></li>
+        </ul>
+        <ul>
+          <li><a href="signin.html">Sign In</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="signup">
+      <h2>SignIn Form</h2>
+      <br />
+      <div>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          placeholder="Enter Your Name"
+        />
+      </div>
+      <div>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder="Enter Your Password"
+        />
+      </div>
+      <br />
+      <div>
+        <button id="btn">SignIn</button>
+        <!-- <a href="gif.html">SignIn</a> -->
+      </div>
+    </div>
+    <script>
+      document.querySelector("#btn").onclick = function () {
+        var name = document.getElementById("name").value;
+        var password = document.getElementById("password").value;
+        let arr = localStorage.getItem("objects");
+        let retrievedData = JSON.parse(arr);
+        //console.log(retrievedData[0].name);
+        retrievedData.forEach((obj) => {
+          //console.log(obj.name);
+          if (obj.name === name && obj.password === password) {
+            location.href = "gif.html";
+          } else {
+            // console.log("error");
+            alert("Enter Correct Details");
+          }
+        });
+        console.log(localStorage.getItem("objects"));
+        //location.href = "gif.html";
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GIFF</title>
+    <style>
+      body {
+        background-color: #f5e8c7;
+      }
+      nav {
+        background-color: #3e2c41;
+      }
+      #logo {
+        font-size: 2.5rem;
+      }
+      #navbar {
+        width: 70%;
+        height: 8vh;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 10px auto;
+      }
+      #navLinks {
+        display: flex;
+        justify-content: space-between;
+        width: 35%;
+      }
+      ul li {
+        list-style: none;
+      }
+      ul li a {
+        text-decoration: none;
+        color: white;
+        padding: 10px 20px;
+        font-size: large;
+        text-transform: uppercase;
+      }
+      ul li img {
+        height: 30px;
+        padding-left: 5px;
+      }
+      button {
+        padding: 10px;
+        text-transform: uppercase;
+        border: 1px solid black;
+      }
+      button:hover {
+        background: black;
+        color: #f5e8c7;
+      }
+      ul li a:hover {
+        background-color: black;
+        color: #f5e8c7;
+      }
+      h2 {
+        font-size: 2.5rem;
+      }
+      .signup {
+        height: 75vh;
+        width: 50%;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      input {
+        padding: 10px;
+        width: 100%;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav id="navbar">
+      <div id="logo">
+        <ul>
+          <li><img src="gifs/text.gif" alt="" /></li>
+        </ul>
+      </div>
+      <div id="navLinks">
+        <ul>
+          <li><a href="signup.html">Sign Up</a></li>
+        </ul>
+        <ul>
+          <li><a href="signin.html">Sign In</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="signup">
+      <h2>SignUp Form</h2>
+      <br />
+      <div>
+        <input type="text" id="name" placeholder="Enter Your Name" />
+      </div>
+      <div>
+        <input
+          type="email"
+          name="mail"
+          id="mail"
+          placeholder="Enter Your Email ID"
+        />
+      </div>
+      <div>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder="Enter Your Password"
+        />
+      </div>
+      <div>
+        <button id="btn">SignUp</button>
+      </div>
+    </div>
+    <script>
+      //json.parse converts JSON string into a JavaScript object
+      const localStorageObj = JSON.parse(localStorage.getItem("objets"));
+      let objets =
+        localStorage.getItem("objets") !== null ? localStorageObj : [];
+      document.querySelector("#btn").onclick = function () {
+        //console.log("log");
+        let name = document.getElementById("name").value;
+        let password = document.getElementById("password").value;
+        if (name.trim() == "" || password.trim() == "") {
+          alert("All fields required!");
+        } else {
+          const obj = {
+            id: Math.floor(Math.random() * 100) + 1,
+            name: name,
+            password: password,
+          };
+          objets.push(obj);
+          //JSON. stringify converts JavaScript object or value into a JSON string
+          localStorage.setItem("objects", JSON.stringify(objets));
+          location.href = "signin.html";
+        }
+      };
+    </script>
+  </body>
+</html>
